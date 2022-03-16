@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: "Bungee Inline", cursive;
+}
+
+.nav {
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  height: 8vh;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 24rem;
+  max-width: 25rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 92vh;
+  background-color: crimson;
+}
+
+.container p {
+  padding: 1.5rem;
+}
+
+.btn {
+  font-size: 1.125rem;
+  background-color: blueviolet;
+  padding: 0 1rem;
+}
+
+.btn:active {
+  outline: none;
+}
