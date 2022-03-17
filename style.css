@@ -15,22 +15,23 @@ body {
   background-color: transparent;
   display: flex;
   justify-content: center;
-  display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.link {
-  padding: 1rem 4rem;
+  width: 100%;
+  gap: 7rem;
+  padding: 1rem;
 }
 
 .hex {
-  text-shadow: 0 0 3px rgb(0, 97, 182);
-  color: rgb(0, 97, 182);
+  text-shadow: 0 0 3px rgb(66, 133, 244);
+  color: rgb(66, 133, 244);
+  border-top: 3px solid rgb(66, 133, 244);
+  border-bottom: 3px solid rgb(66, 133, 244);
 }
 .rgb {
-  text-shadow: 0 0 3px rgb(187, 2, 2);
-  color: rgb(187, 2, 2);
+  text-shadow: 0 0 3px rgb(219, 68, 55);
+  color: rgb(219, 68, 55);
+  border-top: 3px solid rgb(219, 68, 55);
+  border-bottom: 3px solid rgb(219, 68, 55);
 }
 
 .container {
