@@ -8,11 +8,12 @@
 }
 
 body {
-  background-color: rgb(31, 29, 54);
+  background-color: rgb(54, 54, 54);
+  transition: all 0.1s ease-in-out;
 }
 
 .nav {
-  background-color: transparent;
+  background-color: rgb(37, 37, 37);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,39 +25,58 @@ body {
 .hex {
   text-shadow: 0 0 3px rgb(66, 133, 244);
   color: rgb(66, 133, 244);
-  border-top: 3px solid rgb(66, 133, 244);
   border-bottom: 3px solid rgb(66, 133, 244);
 }
+
+.hex:hover {
+  text-shadow: 0 0 10px rgb(66, 133, 244);
+  transform: translateY(-0.25rem);
+  transition: all 0.2s ease-in-out;
+}
+
+.rgb:hover {
+  text-shadow: 0 0 10px rgb(219, 68, 55);
+}
+
 .rgb {
   text-shadow: 0 0 3px rgb(219, 68, 55);
   color: rgb(219, 68, 55);
-  border-top: 3px solid rgb(219, 68, 55);
   border-bottom: 3px solid rgb(219, 68, 55);
 }
 
 .container {
   margin-top: 12rem;
   display: flex;
-  flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
 }
 
-.container h2 {
+.box {
+  padding: 5rem 2rem 5rem;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(37, 37, 37);
+  box-shadow: 0px 0px 4px rgb(37, 37, 37);
+}
+
+.box h2 {
   color: rgb(244, 180, 0);
   text-shadow: 0 0 2px rgb(244, 180, 0);
 }
 
-.container p {
-  padding: 5rem;
-  font-size: 2rem;
+.box p {
+  padding-top: 1rem;
+  padding-bottom: 1.75rem;
 }
 
 .btn {
   position: relative;
   font-size: 1.25rem;
   padding: 0.25rem 1rem;
-  color: black;
+  color: rgb(37, 37, 37);
   background-color: rgb(15, 157, 88);
   border: 3px solid rgb(15, 157, 88);
   border-radius: 10px;
