@@ -53,6 +53,10 @@ body {
   align-items: center;
 }
 
+.hidden {
+  display: none;
+}
+
 .box {
   padding: 4.75rem 2rem 4.75rem;
   border-radius: 50%;

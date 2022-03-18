@@ -3,6 +3,7 @@ const nav = document.querySelector(".nav");
 const randomBtn = document.querySelector(".btn");
 const colorName = document.querySelector("div > p");
 const box = document.querySelector(".box");
+const container = document.querySelector(".container");
 
 const randomNumber = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -39,7 +40,6 @@ const randomColorHex = function () {
   }
 
   return hexColor;
-  // updateUI(hexColor);
 };
 
 const randomColorRgb = function () {
@@ -49,18 +49,24 @@ const randomColorRgb = function () {
   )}, ${randomNumber(0, 255)})`;
 
   return rgbColor;
-  // updateUI(rgbColor);
+};
+
+const showContainer = function () {
+  container.classList.remove("hidden");
 };
 
 nav.addEventListener("click", function (e) {
   const clicked = e.target.closest("h1");
   if (!clicked) return;
-  const colorType = function () {
+  showContainer();
+  colorName.textContent =
+    clicked.textContent === "HEX" ? "#_______" : "RGB(___, ___, ___,)";
+  const changeColor = function () {
     clicked.textContent === "HEX"
       ? updateUI(randomColorHex())
       : updateUI(randomColorRgb());
   };
   clicked.textContent === "HEX"
-    ? randomBtn.addEventListener("click", colorType)
-    : randomBtn.addEventListener("click", colorType);
+    ? randomBtn.addEventListener("click", changeColor)
+    : randomBtn.addEventListener("click", changeColor);
 });
