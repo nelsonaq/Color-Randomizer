@@ -1,5 +1,6 @@
 "use strict";
-const nav = document.querySelector(".nav");
+const hexPage = document.querySelector(".hex");
+const rgbPage = document.querySelector(".rgb");
 const randomBtn = document.querySelector(".btn");
 const colorName = document.querySelector("div > p");
 
@@ -36,9 +37,14 @@ const randomColorHex = function () {
   document.body.style.backgroundColor = hexColor;
 };
 
-randomBtn.addEventListener("click", randomColorHex);
+const randomColorRGB = function () {
+  let rgbColor = `RGB(${randomNumber(0, 255)}, ${randomNumber(
+    0,
+    255
+  )}, ${randomNumber(0, 255)})`;
+  console.log(rgbColor);
+  colorName.textContent = rgbColor;
+  document.body.style.backgroundColor = rgbColor;
+};
 
-nav.addEventListener("click", function (e) {
-  const colorType = e.target.closest("h1");
-  console.log(colorType);
-});
+randomBtn.addEventListener("click", randomColorHex);
