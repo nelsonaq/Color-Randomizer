@@ -8,6 +8,11 @@ const randomNumber = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
+const updateUI = function (color) {
+  colorName.textContent = color;
+  document.body.style.backgroundColor = color;
+};
+
 const randomColorHex = function () {
   const hexCharacters = [
     0,
@@ -32,9 +37,8 @@ const randomColorHex = function () {
   for (let x = 0; x < 6; x++) {
     hexColor += hexCharacters[randomNumber(0, hexCharacters.length - 1)];
   }
-  console.log(hexColor);
-  colorName.textContent = hexColor;
-  document.body.style.backgroundColor = hexColor;
+
+  updateUI(hexColor);
 };
 
 const randomColorRGB = function () {
@@ -42,9 +46,8 @@ const randomColorRGB = function () {
     0,
     255
   )}, ${randomNumber(0, 255)})`;
-  console.log(rgbColor);
-  colorName.textContent = rgbColor;
-  document.body.style.backgroundColor = rgbColor;
+
+  updateUI(rgbColor);
 };
 
-randomBtn.addEventListener("click", randomColorHex);
+randomBtn.addEventListener("click", randomColorRGB);
