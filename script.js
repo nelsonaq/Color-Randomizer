@@ -1,8 +1,8 @@
 "use strict";
-const hexPage = document.querySelector(".hex");
-const rgbPage = document.querySelector(".rgb");
+const nav = document.querySelector(".nav");
 const randomBtn = document.querySelector(".btn");
 const colorName = document.querySelector("div > p");
+const box = document.querySelector(".box");
 
 const randomNumber = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -38,16 +38,29 @@ const randomColorHex = function () {
     hexColor += hexCharacters[randomNumber(0, hexCharacters.length - 1)];
   }
 
-  updateUI(hexColor);
+  return hexColor;
+  // updateUI(hexColor);
 };
 
-const randomColorRGB = function () {
+const randomColorRgb = function () {
   let rgbColor = `RGB(${randomNumber(0, 255)}, ${randomNumber(
     0,
     255
   )}, ${randomNumber(0, 255)})`;
 
-  updateUI(rgbColor);
+  return rgbColor;
+  // updateUI(rgbColor);
 };
 
-randomBtn.addEventListener("click", randomColorRGB);
+nav.addEventListener("click", function (e) {
+  const clicked = e.target.closest("h1");
+  if (!clicked) return;
+  const colorType = function () {
+    clicked.textContent === "HEX"
+      ? updateUI(randomColorHex())
+      : updateUI(randomColorRgb());
+  };
+  clicked.textContent === "HEX"
+    ? randomBtn.addEventListener("click", colorType)
+    : randomBtn.addEventListener("click", colorType);
+});
