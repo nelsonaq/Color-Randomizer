@@ -14,36 +14,47 @@ body {
 
 .nav {
   background-color: rgb(37, 37, 37);
+  font-size: 1.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100vh;
   gap: 7rem;
   padding: 1rem;
+  transition: all 0.5s ease-in-out;
 }
 
 .hex {
   text-shadow: 0 0 3px rgb(66, 133, 244);
   color: rgb(66, 133, 244);
   border-bottom: 3px solid rgb(66, 133, 244);
-}
-
-.hex:hover {
-  text-shadow: 0 0 10px rgb(66, 133, 244);
-  transform: translateY(-0.25rem);
-  transition: all 0.2s ease-in-out;
-}
-
-.rgb:hover {
-  text-shadow: 0 0 10px rgb(219, 68, 55);
-  transform: translateY(-0.25rem);
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.1s ease-in-out;
 }
 
 .rgb {
   text-shadow: 0 0 3px rgb(219, 68, 55);
   color: rgb(219, 68, 55);
   border-bottom: 3px solid rgb(219, 68, 55);
+  transition: transform 0.1s ease-in-out;
+}
+
+.hex:hover {
+  text-shadow: 0 0 16px rgb(66, 133, 244);
+  cursor: pointer;
+}
+
+.rgb:hover {
+  text-shadow: 0 0 16px rgb(219, 68, 55);
+  cursor: pointer;
+}
+
+.hex:active {
+  transform: translateY(-0.5rem);
+}
+
+.rgb:active {
+  transform: translateY(-0.5rem);
 }
 
 .container {
@@ -76,6 +87,7 @@ body {
 .box p {
   padding-top: 1rem;
   padding-bottom: 1.75rem;
+  font-size: 1.125rem;
 }
 
 .btn {
@@ -102,12 +114,11 @@ body {
 .btn:hover {
   color: rgb(15, 157, 88);
   background-color: rgb(37, 37, 37);
-  transform: rotate(0deg);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
 .btn:active {
-  transform: rotate(10deg);
-  transition: all 0.2s ease-in-out;
+  transform: translateY(0.5rem);
+  transition: all 0.1s ease-in-out;
 }

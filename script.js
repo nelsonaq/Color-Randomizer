@@ -1,8 +1,9 @@
 "use strict";
 const nav = document.querySelector(".nav");
+const hexText = document.querySelector(".hex");
+const rgbText = document.querySelector(".rgb");
 const randomBtn = document.querySelector(".btn");
 const colorName = document.querySelector("div > p");
-const box = document.querySelector(".box");
 const container = document.querySelector(".container");
 
 const randomNumber = function (min, max) {
@@ -53,20 +54,39 @@ const randomColorRgb = function () {
 
 const showContainer = function () {
   container.classList.remove("hidden");
+  nav.style.fontSize = "1rem";
+  nav.style.height = "8vh";
+};
+
+const activePage = function (activePage) {
+  if (activePage) {
+    colorName.textContent = "#_______";
+
+    hexText.style.textShadow = `0 0 1rem rgb(66, 133, 244)`;
+    hexText.style.opacity = 1;
+
+    rgbText.style.textShadow = `0 0 0 rgb(219, 68, 55)`;
+    rgbText.style.opacity = 0.4;
+  }
+  if (!activePage) {
+    colorName.textContent = "RGB(___, ___, ___,)";
+
+    rgbText.style.textShadow = `0 0 1rem rgb(219, 68, 55)`;
+    rgbText.style.opacity = 1;
+
+    hexText.style.textShadow = `0 0 0 rgb(66, 133, 244)`;
+    hexText.style.opacity = 0.4;
+  }
 };
 
 nav.addEventListener("click", function (e) {
   const clicked = e.target.closest("h1");
   if (!clicked) return;
+  const active = clicked.textContent === "HEX";
   showContainer();
-  colorName.textContent =
-    clicked.textContent === "HEX" ? "#_______" : "RGB(___, ___, ___,)";
+  activePage(active);
   const changeColor = function () {
-    clicked.textContent === "HEX"
-      ? updateUI(randomColorHex())
-      : updateUI(randomColorRgb());
+    active ? updateUI(randomColorHex()) : updateUI(randomColorRgb());
   };
-  clicked.textContent === "HEX"
-    ? randomBtn.addEventListener("click", changeColor)
-    : randomBtn.addEventListener("click", changeColor);
+  randomBtn.addEventListener("click", changeColor);
 });
