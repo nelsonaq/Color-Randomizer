@@ -20,7 +20,7 @@ const randomNumber = function (min, max) {
  * Renders the color code and background color on the DOM
  * @param {string} color - The color that gets rendered
  */
-const updateUI = function (color) {
+const renderColor = function (color) {
   colorName.textContent = color;
   document.body.style.backgroundColor = color;
 };
@@ -79,35 +79,45 @@ const showContainer = function () {
   nav.style.height = "8vh";
 };
 
-const activePage = function (activePage) {
-  if (activePage) {
+/**
+ * Displays which color type is active
+ * @param {boolean} activeColorType - If true, it means HEX is the active color type else it's RGB
+ */
+const activeColorTypeUI = function (activeColorType) {
+  if (activeColorType) {
     colorName.textContent = "#_______";
 
-    hexText.style.textShadow = `0 0 1rem rgb(66, 133, 244)`;
-    hexText.style.opacity = 1;
+    hexText.classList.toggle("active");
+    rgbText.classList.toggle("inactive");
 
-    rgbText.style.textShadow = `0 0 0 rgb(219, 68, 55)`;
-    rgbText.style.opacity = 0.4;
+    hexText.classList.remove("inactive");
   }
-  if (!activePage) {
+  if (!activeColorType) {
     colorName.textContent = "RGB(___, ___, ___,)";
 
-    rgbText.style.textShadow = `0 0 1rem rgb(219, 68, 55)`;
-    rgbText.style.opacity = 1;
+    rgbText.classList.toggle("active");
+    hexText.classList.toggle("inactive");
 
-    hexText.style.textShadow = `0 0 0 rgb(66, 133, 244)`;
-    hexText.style.opacity = 0.4;
+    rgbText.classList.remove("inactive");
   }
 };
 
+/**
+ * An event listner for the HEX and RGB selection the nav bar
+ * @returns {undefined} - Returns if anything aside from an h1 element has been clicked
+ */
 nav.addEventListener("click", function (e) {
   const clicked = e.target.closest("h1");
   if (!clicked) return;
   const active = clicked.textContent === "HEX";
   showContainer();
-  activePage(active);
+  activeColorTypeUI(active);
+
+  /**
+   * Determines which color type is active and renders it in the DOM
+   */
   const changeColor = function () {
-    active ? updateUI(randomColorHex()) : updateUI(randomColorRgb());
+    active ? renderColor(randomColorHex()) : renderColor(randomColorRgb());
   };
   randomBtn.addEventListener("click", changeColor);
 });

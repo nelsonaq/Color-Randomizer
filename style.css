@@ -39,6 +39,15 @@ body {
   transition: transform 0.1s ease-in-out;
 }
 
+.active {
+  text-shadow: 0 0 16px;
+}
+
+.inactive {
+  text-shadow: none;
+  opacity: 0.4;
+}
+
 .hex:hover {
   text-shadow: 0 0 16px rgb(66, 133, 244);
   cursor: pointer;
