@@ -2,4 +2,4 @@
 
 Color Ramdomizer is an application that generates random colors from Hexadecimal and RGBA colors.
 
-https://color-randomizer-nelson.netlify.app/
+Live Demo: [Color Randomizer](https://color-randomizer-nelson.netlify.app/)
